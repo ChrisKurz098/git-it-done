@@ -5,7 +5,11 @@ function getRepoIssues(repo) {
             response.json().then(function (data) {
 
                 displayIssues(data);
-                console.log(data);
+                // check if api has paginated issues
+                if (response.headers.get("Link")) {
+                    displayWarning(repo);
+                }
+
             });
         } else {
             alert('There was a problem with your request')
@@ -46,5 +50,16 @@ function displayIssues(issues) {
         issueContainerEl.appendChild(issueEl);
     }
 };
+
+function displayWarning(repo){
+    let limitWarningEl = document.querySelector("#limit-warning");
+    limitWarningEl.textContent = "This repo has more than 30 issues"
+
+    let linkEl = document.createElement("a");
+    linkEl.textContent = "See More Issues on GitHub.com";
+    linkEl.setAttribute("href", "https://github.com/" + repo + "/issues");
+    linkEl.setAttribute("target", "_blank");
+    linkEl.append(limitWarningEl);
+}
 getRepoIssues("facebook/react");
 
