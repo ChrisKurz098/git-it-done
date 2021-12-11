@@ -27,12 +27,14 @@
         <input name="username" id="username" type="text" autofocus="true" class="form-input" />
         <button type="submit" class="btn">Get User</button>
       </form>
-      
-        <h3 class="card-header text-uppercase">Search By Topic</h3>
-        <button type="button" class="btn" data-javaScript>JavaScript</button>
-        <button type="button" class="btn" data-html>HTML</button>
-        <button type="button" class="btn" data-css>CSS</button>
-      
+
+      <h3 class="card-header text-uppercase">Search By Topic</h3>
+      <div class="card-body" id="language-buttons">
+        <button type="button" class="btn" data-language = 'javaScript'>JavaScript</button>
+        <button type="button" class="btn" data-language = 'html'>HTML</button>
+        <button type="button" class="btn" data-language = 'css'>CSS</button>
+      </div>
+
     </div>
 
     <div class="col-12 col-md-8">
@@ -40,7 +42,7 @@
       <div id="repos-container" class="list-group"></div>
     </div>
 
-  
+
   </main>
 
 
